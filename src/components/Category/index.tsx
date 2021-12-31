@@ -14,12 +14,12 @@ type Props = RectButtonProps & {
 }
 
 export default function Category({title, icon: Icon, checked = false, ...rest}: Props){
-  const {secondary50, secondary100} = theme.colors
+  const {secondary100, secondary70} = theme.colors
  
   return (
     <RectButton {...rest}>
       <LinearGradient
-        colors={[secondary50, secondary100]}
+        colors={[secondary100, secondary70]}
         style={styles.container}
       >
         <View style={[styles.content, {opacity: checked ? 1 : 0.4}]}>

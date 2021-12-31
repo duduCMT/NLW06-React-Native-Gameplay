@@ -8,6 +8,7 @@ import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhan
 
 import SingIn from './src/screens/SingIn'
 import { StatusBar } from 'react-native'
+import Background from './src/components/Background'
 
 export default function App() {
   //Carregamento de Fontes
@@ -23,13 +24,13 @@ export default function App() {
   }
 
   return (
-    <>
-    <StatusBar 
-      barStyle='light-content'
-      backgroundColor='transparent'
-      translucent
-    />
-    <SingIn />
-    </>
+    <Background>
+      <StatusBar 
+        barStyle='light-content'
+        backgroundColor='transparent'
+        translucent
+      />
+      <SingIn />
+    </Background>
   );
 }

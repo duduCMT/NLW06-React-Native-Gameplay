@@ -9,6 +9,7 @@ import { theme } from '../../global/styles/theme'
 import CategorySelect from '../../components/CategotySelect'
 import { RectButton } from 'react-native-gesture-handler'
 import GuildIcon from '../../components/GuildIcon'
+import SmallInput from '../../components/SmallInput'
 
 
 type Props = {
@@ -49,9 +50,10 @@ export default function AppointmentCreate({ }: Props) {
               color={theme.colors.heading}
               size={18}
             />
-
           </View>
         </RectButton>
+
+        <SmallInput />
       </View>
 
     </View>

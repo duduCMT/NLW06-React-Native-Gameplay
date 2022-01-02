@@ -29,5 +29,8 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text400,
     color: theme.colors.heading,
     lineHeight: 21,
+  },
+  listHeader: {
+    marginTop: 24,
   }
 })

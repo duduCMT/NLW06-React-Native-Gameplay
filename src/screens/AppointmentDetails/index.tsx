@@ -10,6 +10,7 @@ import BannerImg from '../../assets/banner.png'
 
 import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
+import ListHeader from '../../components/ListHeader'
 
 type Props = {
 
@@ -39,6 +40,12 @@ export default function AppointmentDetails({ }: Props) {
           </Text>
         </View>
       </ImageBackground>
+
+      <ListHeader 
+        title='Jogadores'
+        subtitle='Total 3'
+        style={styles.listHeader}
+      />
     </View>
   )
 }

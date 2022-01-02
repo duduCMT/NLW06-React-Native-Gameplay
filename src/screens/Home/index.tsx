@@ -82,7 +82,7 @@ export default function Home() {
         style={styles.matches}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 8 }}
-        ItemSeparatorComponent={() => <ListDivider />}
+        ItemSeparatorComponent={() => <ListDivider width={74} />}
       />
 
     </View>

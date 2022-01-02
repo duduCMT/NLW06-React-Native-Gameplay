@@ -2,8 +2,12 @@ import React from 'react'
 import { View } from 'react-native'
 import { styles } from './styles'
 
-export default function ListDivider(){
+type Props = {
+  width?: number
+}
+
+export default function ListDivider({width = 100}: Props){
   return (
-    <View style={styles.container} />
+    <View style={[styles.container, {width: `${width}%`}]} />
   )
 }

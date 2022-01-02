@@ -32,5 +32,9 @@ export const styles = StyleSheet.create({
   },
   listHeader: {
     marginTop: 24,
+  },
+  members: {
+    paddingTop: 16,
+    paddingHorizontal: 8,
   }
 })

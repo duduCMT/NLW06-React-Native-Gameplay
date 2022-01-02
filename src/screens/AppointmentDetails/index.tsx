@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, ImageBackground } from 'react-native'
 
 //Apenas para teste
-import { RectButton } from 'react-native-gesture-handler'
+import { FlatList, RectButton } from 'react-native-gesture-handler'
 import Icon from '@expo/vector-icons/MaterialIcons'
 
 import Header from '../../components/Header'
@@ -11,6 +11,29 @@ import BannerImg from '../../assets/banner.png'
 import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
 import ListHeader from '../../components/ListHeader'
+import Member from '../../components/Member'
+import ListDivider from '../../components/ListDivider'
+
+const members = [
+  {
+    id: '1',
+    username: 'Eduardo',
+    avatar_url: 'https://github.com/duduCMT.png',
+    status: 'online',
+  },
+  {
+    id: '2',
+    username: 'Tiago Rodrigo',
+    avatar_url: 'https://static.diverseui.com/anders.png',
+    status: 'online',
+  },
+  {
+    id: '3',
+    username: 'Kaio Junior',
+    avatar_url: 'https://static.diverseui.com/88b95197-fd1e-4e11-8793-2903a5cfd06e-10584053_10153749310922416_3125632463004974493_n.jpg',
+    status: 'online',
+  },
+]
 
 type Props = {
 
@@ -19,7 +42,7 @@ type Props = {
 export default function AppointmentDetails({ }: Props) {
   return (
     <View style={styles.container}>
-      <Header title='Titulo' action={
+      <Header title='Detalhes' action={
         <RectButton style={{ padding: 8, }}>
           <Icon
             name="share"
@@ -45,6 +68,18 @@ export default function AppointmentDetails({ }: Props) {
         title='Jogadores'
         subtitle='Total 3'
         style={styles.listHeader}
+      />
+
+      <FlatList 
+        data={members}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => (
+          <Member data={item} />
+        )}
+        ItemSeparatorComponent={ () =>
+          <ListDivider width={76} />
+        }
+        contentContainerStyle={styles.members}
       />
     </View>
   )

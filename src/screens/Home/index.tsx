@@ -10,42 +10,37 @@ import ListHeader from '../../components/ListHeader'
 import { FlatList } from 'react-native-gesture-handler'
 import Appointment, { AppointmentProps } from '../../components/Appointment'
 import ListDivider from '../../components/ListDivider'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../../routes/auth.routes'
 
-type appointmentDetailsScreenProp = 
-  StackNavigationProp<RootStackParamList, 'AppointmentDetails'>;
+const appointments = [
+  {
+    id: '1',
+    guild: {
+      id: '1',
+      name: 'Lendários',
+      icon: null,
+      owner: true,
+    },
+    category: '1',
+    date: '22/06 às 20:40h',
+    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
+  },
+  {
+    id: '2',
+    guild: {
+      id: '1',
+      name: 'Lendários',
+      icon: null,
+      owner: true,
+    },
+    category: '1',
+    date: '22/06 às 20:40h',
+    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
+  },
+]
 
 export default function Home() {
   const [category, setCategory] = useState('')
-  const navigation = useNavigation<appointmentDetailsScreenProp>()
-
-  const appointments = [
-    {
-      id: '1',
-      guild: {
-        id: '1',
-        name: 'Lendários',
-        icon: null,
-        owner: true,
-      },
-      category: '1',
-      date: '22/06 às 20:40h',
-      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
-    },
-    {
-      id: '2',
-      guild: {
-        id: '1',
-        name: 'Lendários',
-        icon: null,
-        owner: true,
-      },
-      category: '1',
-      date: '22/06 às 20:40h',
-      description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
-    },
-  ]
+  const navigation = useNavigation()
 
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory('') : setCategory(categoryId)
@@ -53,12 +48,15 @@ export default function Home() {
   function handleAppointmentDetails(data: AppointmentProps){
     navigation.navigate('AppointmentDetails')
   }
+  function handleAppointmentCreate(){
+    navigation.navigate('AppointmentCreate')
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
 
       <CategorySelect

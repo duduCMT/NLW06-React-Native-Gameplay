@@ -8,11 +8,8 @@ import { RootStackParamList } from '../../routes/auth.routes';
 import IllustrationImg from '../../assets/illustration.png';
 import ButtonIcon from '../../components/ButtonIcon';
 
-type homeScreenProp = 
-  StackNavigationProp<RootStackParamList, 'Home'>;
-
 export default function SingIn() {
-  const navigation = useNavigation<homeScreenProp>()
+  const navigation = useNavigation()
 
   function handleSingIn(){
     navigation.navigate('Home')

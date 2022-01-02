@@ -1,7 +1,5 @@
 import React from 'react'
 import { View, Text, ImageBackground } from 'react-native'
-
-//Apenas para teste
 import { FlatList, RectButton } from 'react-native-gesture-handler'
 import Icon from '@expo/vector-icons/MaterialIcons'
 

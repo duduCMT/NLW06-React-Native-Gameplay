@@ -11,7 +11,7 @@ type Props = RectButtonProps & {
   title: string,
   icon: React.FC<SvgProps>,
   checked: boolean,
-  hasCheckBox: boolean,
+  hasCheckBox?: boolean,
 }
 
 export default function Category({title, icon: Icon, checked = false, hasCheckBox = false, ...rest}: Props){

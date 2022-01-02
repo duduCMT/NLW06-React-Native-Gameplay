@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
   content: {
     width: '97%',
     height: '97%',
-    backgroundColor: theme.colors.secondary40,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
@@ -29,8 +28,8 @@ export const styles = StyleSheet.create({
     width: 12,
     height: 12,
     position: 'absolute',
-    right: 4,
-    top: 4,
+    right: 7,
+    top: 7,
     borderColor: theme.colors.secondary50,
     borderWidth: 2,
     borderRadius: 4,

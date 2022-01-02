@@ -1,12 +1,12 @@
 import React from 'react'
 import { Image, Text, View, } from 'react-native';
-
-import { styles } from './styles';
-import IllustrationImg from '../../assets/illustration.png';
-import ButtonIcon from '../../components/ButtonIcon';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+
+import { styles } from './styles';
 import { RootStackParamList } from '../../routes/auth.routes';
+import IllustrationImg from '../../assets/illustration.png';
+import ButtonIcon from '../../components/ButtonIcon';
 
 type homeScreenProp = 
   StackNavigationProp<RootStackParamList, 'Home'>;
@@ -15,11 +15,7 @@ export default function SingIn() {
   const navigation = useNavigation<homeScreenProp>()
 
   function handleSingIn(){
-    try{
-      navigation.navigate("Home")
-    } catch(error){
-
-    }
+    navigation.navigate('Home')
   }
 
   return (

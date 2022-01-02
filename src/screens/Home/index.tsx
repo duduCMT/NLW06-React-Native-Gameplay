@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { styles } from './styles'
 
 import Profile from '../../components/Profile'
@@ -7,11 +8,17 @@ import ButtonAdd from '../../components/ButtonAdd'
 import CategorySelect from '../../components/CategotySelect'
 import ListHeader from '../../components/ListHeader'
 import { FlatList } from 'react-native-gesture-handler'
-import Appointment from '../../components/Appointment'
+import Appointment, { AppointmentProps } from '../../components/Appointment'
 import ListDivider from '../../components/ListDivider'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { RootStackParamList } from '../../routes/auth.routes'
+
+type appointmentDetailsScreenProp = 
+  StackNavigationProp<RootStackParamList, 'AppointmentDetails'>;
 
 export default function Home() {
   const [category, setCategory] = useState('')
+  const navigation = useNavigation<appointmentDetailsScreenProp>()
 
   const appointments = [
     {
@@ -43,6 +50,9 @@ export default function Home() {
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory('') : setCategory(categoryId)
   }
+  function handleAppointmentDetails(data: AppointmentProps){
+    navigation.navigate('AppointmentDetails')
+  }
 
   return (
     <View style={styles.container}>
@@ -64,7 +74,10 @@ export default function Home() {
         data={appointments}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <Appointment data={item} />
+          <Appointment 
+            data={item} 
+            onPress={() => handleAppointmentDetails(item)}
+          />
         )}
         style={styles.matches}
         showsVerticalScrollIndicator={false}

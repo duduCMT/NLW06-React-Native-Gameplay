@@ -9,7 +9,7 @@ type Props = RectButtonProps & {
   title: string,
 }
 
-export default function ButtonIcon({title, ...rest }: Props){
+export default function ButtonIcon({title, style, ...rest }: Props){
   return (
     <RectButton 
       style={styles.container} 

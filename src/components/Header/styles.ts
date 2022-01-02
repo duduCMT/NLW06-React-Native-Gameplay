@@ -28,4 +28,8 @@ export const styles = StyleSheet.create({
     left: 16,
     padding: 8,
   },
+  actionButton: {
+    position: 'absolute',
+    right: 16,
+  },
 })

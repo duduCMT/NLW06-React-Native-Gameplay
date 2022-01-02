@@ -40,7 +40,7 @@ export default function Header({title, action}: Props){
 
         <Text style={styles.title}>{title}</Text>
 
-        { action && <View>{action}</View> }
+        { action && <View style={styles.actionButton}>{action}</View> }
       </View>
     </LinearGradient>
   )

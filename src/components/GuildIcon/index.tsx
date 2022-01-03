@@ -3,7 +3,6 @@ import { View, Text, Image } from 'react-native'
 import { styles } from './styles'
 
 type Props = {
-
 }
 
 export default function GuildIcon({}: Props) {

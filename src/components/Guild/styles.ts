@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     marginHorizontal: 16,
@@ -12,12 +12,13 @@ export const styles = StyleSheet.create({
   content: {
     flex: 1,
     justifyContent: 'center',
+    marginLeft: 20,
   },
   title: {
     fontFamily: theme.fonts.title700,
     color: theme.colors.heading,
     fontSize: 18,
-    marginBottom: 11,
+    marginBottom: 4,
   },
   type: {
     fontFamily: theme.fonts.text400,

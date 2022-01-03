@@ -11,7 +11,7 @@ import TextArea from '../../components/TextArea'
 import Button from '../../components/Button'
 import ModalView from '../../components/ModalView'
 import Guilds from '../Guilds'
-import { GuildProps } from '../../components/Appointment'
+import { GuildProps } from '../../components/Guild'
 
 import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
@@ -28,10 +28,17 @@ export default function AppointmentCreate({ }: Props) {
   function handleOpenGuilds(){
     setOpenGuildsModal(true)   
   }
+  function handleCloseGuilds(){
+    setOpenGuildsModal(false)   
+  }
 
   function handleGuildsSelect(guildSelected: GuildProps){
     setGuild(guildSelected)
     setOpenGuildsModal(false)   
+  }
+
+  function hendleCategorySelect(categoryId: string){
+    setCategory(categoryId)
   }
 
   return (
@@ -48,7 +55,7 @@ export default function AppointmentCreate({ }: Props) {
 
         <CategorySelect
           hasCheckBox
-          setCategory={setCategory}
+          setCategory={hendleCategorySelect}
           categorySelected={category}
         />
 
@@ -115,6 +122,7 @@ export default function AppointmentCreate({ }: Props) {
 
       <ModalView
         visible={openGuildsModal}
+        closeModal={handleCloseGuilds}
       >
         <Guilds handleGuildsSelect={handleGuildsSelect}/>
       </ModalView>

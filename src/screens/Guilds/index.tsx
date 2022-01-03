@@ -18,7 +18,7 @@ const guilds = [
     name: 'Rumo ao Topo',
     icon: 'https://play-lh.googleusercontent.com/Wq15hCMPJW-eUz-c4DtnUxHkk2s-pVra14td-E4b05Eo-Cu8Koj6BqPUNULbh9HfjpkC',
     owner: false,
-  }
+  },
 ]
 
 type Props = {
@@ -39,7 +39,7 @@ export default function Guilds({handleGuildsSelect}: Props){
           <ListDivider width={74} />
         )}
         style={styles.guilds}
-        contentContainerStyle={{marginHorizontal: 8}}
+        contentContainerStyle={{paddingHorizontal: 8, paddingBottom: 32}}
       />
     </View>
   )

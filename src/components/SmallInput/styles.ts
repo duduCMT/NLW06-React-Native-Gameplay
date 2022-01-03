@@ -12,8 +12,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     borderRadius: 8,
     marginRight: 4,
-  },
-  title: {
-    color: '#000',
+    borderWidth: 1,
+    borderColor: theme.colors.secondary50,
   },
 })

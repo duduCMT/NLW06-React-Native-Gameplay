@@ -1,15 +1,15 @@
 import React from 'react'
 import { Image, Text, View, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 
 import { styles } from './styles';
-import { RootStackParamList } from '../../routes/auth.routes';
 import IllustrationImg from '../../assets/illustration.png';
 import ButtonIcon from '../../components/ButtonIcon';
+import { useAuth } from '../../hooks/auth';
 
 export default function SingIn() {
   const navigation = useNavigation()
+  const { user } = useAuth();
 
   function handleSingIn(){
     navigation.navigate('Home')

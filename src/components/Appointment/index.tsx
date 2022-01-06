@@ -40,7 +40,7 @@ export default function Appointment({ data, ...rest }: Props) {
             secondary60
           ]}
         >
-          <GuildIcon />
+          <GuildIcon guildId={data.guild.id} iconId={data.guild.icon} />
         </LinearGradient>
 
         <View style={styles.content}>

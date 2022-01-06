@@ -1,46 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, FlatList } from 'react-native'
 
 import Guild, { GuildProps } from '../../components/Guild'
 import ListDivider from '../../components/ListDivider'
+import Load from '../../components/Load'
+import { api } from '../../services/api'
 
 import { styles } from './styles'
-
-const guilds = [
-  {
-    id: '1',
-    name: 'Lendários',
-    icon: 'https://play-lh.googleusercontent.com/Wq15hCMPJW-eUz-c4DtnUxHkk2s-pVra14td-E4b05Eo-Cu8Koj6BqPUNULbh9HfjpkC',
-    owner: true,
-  },
-  {
-    id: '2',
-    name: 'Rumo ao Topo',
-    icon: 'https://play-lh.googleusercontent.com/Wq15hCMPJW-eUz-c4DtnUxHkk2s-pVra14td-E4b05Eo-Cu8Koj6BqPUNULbh9HfjpkC',
-    owner: false,
-  },
-]
 
 type Props = {
   handleGuildsSelect: (guild: GuildProps) => void;  
 }
 
 export default function Guilds({handleGuildsSelect}: Props){
+  const [guilds, setGuilds] = useState<GuildProps[]>([])
+  const [loading, setLoading] = useState(true)
+
+  async function fetchGuilds() {
+    const response = await api.get('/users/@me/guilds')
+    setGuilds(response.data)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    fetchGuilds()
+  }, [])
+
   return (
     <View style={styles.container}>
-      <FlatList
-        data={guilds}
-        keyExtractor={(item) => item.id}
-        renderItem={({item}) => (
-          <Guild data={item} onPress={() => handleGuildsSelect(item)} />   
-        )}
-        showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={() => (
-          <ListDivider width={74} />
-        )}
-        style={styles.guilds}
-        contentContainerStyle={{paddingHorizontal: 8, paddingBottom: 32}}
-      />
+      { 
+        loading ? <Load /> :
+        <FlatList
+          data={guilds}
+          keyExtractor={(item) => item.id}
+          renderItem={({item}) => (
+            <Guild data={item} onPress={() => handleGuildsSelect(item)} />   
+          )}
+          showsVerticalScrollIndicator={false}
+          ItemSeparatorComponent={() => (
+            <ListDivider width={74} />
+          )}
+          style={styles.guilds}
+          contentContainerStyle={{paddingHorizontal: 8, paddingBottom: 32}}
+        />
+      }
     </View>
   )
 }

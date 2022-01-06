@@ -1,8 +1,8 @@
 import React from 'react'
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 
+import AppRoutes from './app.routes'
 import AuthRoutes from './auth.routes'
-import SingInRoutes from './singin.routes'
 import { useAuth } from '../hooks/auth'
 
 export default function Routes() {
@@ -15,7 +15,7 @@ export default function Routes() {
         background: 'transparent'
       }
     }}>
-      { user.id ? <AuthRoutes /> : <SingInRoutes /> }
+      { user.id ? <AppRoutes /> : <AuthRoutes /> }
     </NavigationContainer>
   )
 }

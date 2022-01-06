@@ -62,10 +62,8 @@ export default function AppointmentCreate({ }: Props) {
         <View style={styles.form}>
           <RectButton onPress={handleOpenGuilds}>
             <View style={styles.select}>
-              { guild.icon 
-                ? <GuildIcon />
-                : <View style={styles.image} />
-              }
+              <GuildIcon guildId={guild.id} iconId={guild.icon} style={styles.image} />
+              
               <View style={styles.selectBody}>
                 <Text style={styles.label}>
                   {guild.name ? guild.name : 'Selecione um servidor'}

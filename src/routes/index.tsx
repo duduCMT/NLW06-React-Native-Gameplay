@@ -2,10 +2,12 @@ import React from 'react'
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 
 import AuthRoutes from './auth.routes'
-import Background from '../components/Background'
-import { StatusBar } from 'react-native'
+import SingInRoutes from './singin.routes'
+import { useAuth } from '../hooks/auth'
 
 export default function Routes() {
+  const { user } = useAuth();
+
   return (
     <NavigationContainer theme={{...DefaultTheme,
       colors: {
@@ -13,7 +15,7 @@ export default function Routes() {
         background: 'transparent'
       }
     }}>
-      <AuthRoutes />
+      { user.id ? <AuthRoutes /> : <SingInRoutes /> }
     </NavigationContainer>
   )
 }

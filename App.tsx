@@ -1,7 +1,9 @@
 import React from 'react'
-import { StatusBar } from 'react-native';
+import { StatusBar, LogBox } from 'react-native';
 import AppLoading from 'expo-app-loading'
 import 'react-native-gesture-handler';
+
+LogBox.ignoreLogs(['You are not currently signed in to Expo on your development machine.']);
 
 //Importação de Fontes
 import { useFonts } from 'expo-font'

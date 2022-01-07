@@ -3,6 +3,7 @@ import { View, Text, ImageBackground, Alert, Share, Platform } from 'react-nativ
 import { useRoute } from '@react-navigation/native'
 import { FlatList, RectButton } from 'react-native-gesture-handler'
 import Icon from '@expo/vector-icons/MaterialIcons'
+import * as Linking from 'expo-linking'
 
 import BannerImg from '../../assets/banner.png'
 
@@ -65,6 +66,10 @@ export default function AppointmentDetails({ }: Props) {
     })
   }
 
+  function handleOpenGuild(){
+    Linking.openURL(widget.instant_invite)
+  }
+
   useEffect(() => {
     fetchGuildWidget()    
   }, [])
@@ -120,11 +125,15 @@ export default function AppointmentDetails({ }: Props) {
         </>
       }
 
-      <View style={styles.footer}>
-        <ButtonIcon 
-          title='Entrar na partida'
-        />
-      </View>
+      { guildSelected.guild.owner &&
+        <View style={styles.footer}>
+          <ButtonIcon 
+            title='Entrar na partida'
+            onPress={handleOpenGuild}
+          />
+        </View>
+      }
+      
       
     </View>
   )

@@ -23,16 +23,14 @@ export default function Home() {
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory('') : setCategory(categoryId)
   }
-  function handleAppointmentDetails(data: AppointmentProps) {
-    navigation.navigate('AppointmentDetails')
+  function handleAppointmentDetails(guildSelected: AppointmentProps) {
+    navigation.navigate('AppointmentDetails', { guildSelected })
   }
   function handleAppointmentCreate() {
     navigation.navigate('AppointmentCreate')
   }
 
   async function loadAppointments() {
-    setLoading(true)
-
     const response = await AsyncStorageLib.getItem(COLLECTION_APPOINTMENT)
     const storage: AppointmentProps[] = response ? JSON.parse(response) : []
 

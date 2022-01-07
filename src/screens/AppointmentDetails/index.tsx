@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { View, Text, ImageBackground, Alert, Share, Platform } from 'react-native'
 import { useRoute } from '@react-navigation/native'
-import { View, Text, ImageBackground, Alert } from 'react-native'
 import { FlatList, RectButton } from 'react-native-gesture-handler'
 import Icon from '@expo/vector-icons/MaterialIcons'
 
@@ -54,6 +54,17 @@ export default function AppointmentDetails({ }: Props) {
     }
   }
 
+  function handleShareInvitation(){
+    const message = Platform.OS === 'ios' 
+      ? `Juste-se a ${guildSelected.guild.name}`
+      : widget.instant_invite
+
+    Share.share({
+      message,
+      url: widget.instant_invite
+    })
+  }
+
   useEffect(() => {
     fetchGuildWidget()    
   }, [])
@@ -61,7 +72,8 @@ export default function AppointmentDetails({ }: Props) {
   return (
     <View style={styles.container}>
       <Header title='Detalhes' action={
-        <RectButton style={{ padding: 8, }}>
+        guildSelected.guild.owner &&
+        <RectButton style={{ padding: 8, }} onPress={handleShareInvitation}>
           <Icon
             name="share"
             size={24}

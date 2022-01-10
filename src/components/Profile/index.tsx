@@ -8,7 +8,7 @@ import { getRandomPhrase } from '../../services/phrases'
 import { useAuth } from '../../hooks/auth'
 import { styles } from './styles'
 import ModalView from '../ModalView'
-import SingOut from '../SingOut'
+import SingOut from '../Logout'
 import Button from '../Button'
 
 export default function Profile() {
@@ -42,7 +42,7 @@ export default function Profile() {
         closeModal={handleCloseModal}
         adaptiveHeight
       >
-        <SingOut />
+        <SingOut onCancel={handleCloseModal} />
       </ModalView>
     </View>
   )

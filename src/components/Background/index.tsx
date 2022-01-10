@@ -4,15 +4,16 @@ import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
 
 type Props = {
+  adaptiveHeight?: boolean,
   children: ReactNode
 }
 
-export default function Background({ children }: Props) {
+export default function Background({ children, adaptiveHeight = false }: Props) {
   const { secondary80, secondary100 } = theme.colors
 
   return (
     <LinearGradient
-      style={styles.container}
+      style={adaptiveHeight ? {} : styles.container}
       colors={[secondary80, secondary100]}
     >
       {children}

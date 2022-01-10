@@ -2,13 +2,17 @@ import { theme } from './../../global/styles/theme'
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
-  container: {
+  defaultContainer: {
     flex: 1,
     marginTop: 100,
   },
+  adaptiveContainer: {
+    
+  },
   overlay: {
     flex: 1,
-    backgroundColor: theme.colors.overlay     
+    backgroundColor: theme.colors.overlay,
+    justifyContent: 'flex-end',
   },
   bar: {
     width: 39,

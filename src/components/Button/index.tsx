@@ -1,22 +1,34 @@
 import React from 'react'
-import { Text, Image, View, } from 'react-native'
+import { Text, Image, View, ViewStyle, } from 'react-native'
 import { RectButtonProps, RectButton } from 'react-native-gesture-handler'
 
 import { styles } from './styles'
 
 type Props = RectButtonProps & {
   title: string,
+  type?: string,
+  conteinerStyle?: ViewStyle 
 }
 
-export default function Button({title, style, ...rest }: Props){
+export default function Button({title, type = 'primary', conteinerStyle, ...rest }: Props){
+  var buttonStyle = styles.primaryButton
+  var viewStyle;
+
+  if(type === 'secondary'){
+    buttonStyle = styles.secondaryButton
+    viewStyle = styles.secondaryButtonView
+  }
+
   return (
-    <RectButton 
-      style={styles.container} 
-      {...rest}
-    >
-      <Text style={styles.title}>
-        {title}
-      </Text>
-    </RectButton>
+    <View style={[styles.container, viewStyle ? viewStyle : null, conteinerStyle]}>
+      <RectButton 
+        style={[styles.container, buttonStyle]}
+        {...rest}
+      >
+        <Text style={styles.title}>
+          {title}
+        </Text>
+      </RectButton>
+    </View>
   )
 }

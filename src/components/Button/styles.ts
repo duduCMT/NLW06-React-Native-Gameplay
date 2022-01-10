@@ -3,12 +3,23 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    flex: 1,
     height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 8,
+  },
+  primaryButton: {
     backgroundColor: theme.colors.primary,
+  },
+  secondaryButton: {
+    backgroundColor: 'transparent',  
+  },
+  secondaryButtonView: {
+    flex: 1,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: theme.colors.secondary30,
   },
   title: {
     flex: 1,

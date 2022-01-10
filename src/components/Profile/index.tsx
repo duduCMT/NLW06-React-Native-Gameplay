@@ -12,9 +12,8 @@ import SingOut from '../Logout'
 import Button from '../Button'
 
 export default function Profile() {
-  const { user, singOut } = useAuth()
+  const { user, phrase } = useAuth()
   const [ visible, setVisible ] = useState(false)
-  const phrase = getRandomPhrase()
 
   function handleSingOut(){
     setVisible(true)

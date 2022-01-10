@@ -2,7 +2,7 @@ export default [
   'Hoje é dia de vitória!',
   'O que vai ser hoje?',
   'Hora de avançar com a Guild!',
-  'Quantas vitórias teremos hoje?',
+  'Quantas vitórias para hoje?',
   'O que vai ser hoje?',
   'LINK START!',
   'E aí? Está disposto a ganhar?',

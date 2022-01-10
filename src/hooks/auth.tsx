@@ -11,6 +11,7 @@ const { RESPONSE_TYPE } = process.env
 
 import { api } from '../services/api'
 import { COLLECTION_USERS } from '../configs/database'
+import { getRandomPhrase } from '../services/phrases'
 
 type User = {
   id: string;
@@ -25,7 +26,8 @@ type AuthContextData = {
   user: User;
   singIn: () => Promise<void>;
   singOut: () => Promise<void>;
-  loading: boolean
+  loading: boolean,
+  phrase: string,
 }
 
 const AuthContext = createContext({} as AuthContextData);
@@ -44,6 +46,7 @@ type AuthorizationResponse = AuthSession.AuthSessionResult & {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User>({} as User)
   const [loading, setLoading] = useState(false)
+  const phrase = getRandomPhrase()
 
   async function singIn() {
     try {
@@ -100,7 +103,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       user,
       singIn,
       singOut,
-      loading
+      loading,
+      phrase
     }}>
       {children}
     </AuthContext.Provider>

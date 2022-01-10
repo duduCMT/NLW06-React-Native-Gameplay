@@ -20,6 +20,7 @@ import { COLLECTION_APPOINTMENT } from '../../configs/database'
 import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
 import { useNavigation } from '@react-navigation/native'
+import ErrorMessage from '../../components/ErrorMessage'
 
 type Props = {
 
@@ -28,6 +29,7 @@ type Props = {
 export default function AppointmentCreate({ }: Props) {
   const [category, setCategory] = useState('')
   const [openGuildsModal, setOpenGuildsModal] = useState(false)
+  const [modalErrorVisible, setModalErrorVisible] = useState(false)
   const [guild, setGuild] = useState<GuildProps>({} as GuildProps)
 
   const [day, setDay] = useState('')
@@ -56,7 +58,7 @@ export default function AppointmentCreate({ }: Props) {
 
   async function handleSave() {
     if(!(guild && category && day && month && hour && minute && description)){
-      Alert.alert('Informações Incompletas', 'Todas as informações devem ser preenchidas. Verifique os campos e tente novamente.')
+      setModalErrorVisible(true)
       return
     }
 
@@ -177,6 +179,17 @@ export default function AppointmentCreate({ }: Props) {
         closeModal={handleCloseGuilds}
       >
         <Guilds handleGuildsSelect={handleGuildsSelect}/>
+      </ModalView>
+
+      <ModalView 
+        closeModal={() => setModalErrorVisible(false)} 
+        visible={modalErrorVisible}
+        adaptiveHeight
+      >
+        <ErrorMessage 
+          title='Informações Incompletas!'
+          message='Todas as informações devem ser preenchidas. Verifique os campos e tente novamente.'
+        />
       </ModalView>
     </KeyboardAvoidingView>
   )

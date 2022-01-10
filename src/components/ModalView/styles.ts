@@ -3,8 +3,7 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   defaultContainer: {
-    flex: 1,
-    marginTop: 100,
+    flex: 10,
   },
   adaptiveContainer: {
     

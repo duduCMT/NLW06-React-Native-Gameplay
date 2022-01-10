@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Image, View, ViewStyle, } from 'react-native'
+import { Text, Image, View, ViewStyle, TouchableWithoutFeedback, } from 'react-native'
 import { RectButtonProps, RectButton } from 'react-native-gesture-handler'
 
 import { styles } from './styles'

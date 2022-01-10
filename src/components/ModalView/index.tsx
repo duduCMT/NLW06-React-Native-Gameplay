@@ -6,28 +6,26 @@ import { styles } from './styles'
 type Props = ModalProps & {
   children: ReactNode
   closeModal: () => void;
-  adaptiveHeigth?: boolean
+  adaptiveHeight?: boolean
 }
 
-export default function ModalView({children, closeModal, adaptiveHeigth = false, ...rest}: Props){
+export default function ModalView({ children, closeModal, adaptiveHeight = false, ...rest }: Props) {
   return (
-    <Modal 
+    <Modal
       transparent
       animationType='slide'
       statusBarTranslucent
       {...rest}
     >
       <TouchableWithoutFeedback onPress={closeModal}>
-        <View style={styles.overlay}>
-          <View style={adaptiveHeigth ? styles.adaptiveContainer : styles.defaultContainer }>
-            
-            <Background adaptiveHeight>
-              <View style={styles.bar} />
-              {children}
-            </Background>
-          </View> 
-        </View>
+        <View style={styles.overlay} />
       </TouchableWithoutFeedback>
+      <View style={adaptiveHeight ? styles.adaptiveContainer : styles.defaultContainer}>
+        <Background adaptiveHeight>
+          <View style={styles.bar} />
+          {children}
+        </Background>
+      </View>
     </Modal>
   )
 }

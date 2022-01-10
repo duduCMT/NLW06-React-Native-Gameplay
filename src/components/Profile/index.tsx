@@ -9,6 +9,7 @@ import { useAuth } from '../../hooks/auth'
 import { styles } from './styles'
 import ModalView from '../ModalView'
 import SingOut from '../SingOut'
+import Button from '../Button'
 
 export default function Profile() {
   const { user, singOut } = useAuth()
@@ -17,20 +18,6 @@ export default function Profile() {
 
   function handleSingOut(){
     setVisible(true)
-    // Alert.alert(
-    //   'Logout',
-    //   'Deseja Sair do GamePlay?',
-    //   [
-    //     {
-    //       text: 'Não',
-    //       style: 'cancel',
-    //     },
-    //     {
-    //       text: 'Sim',
-    //       onPress: () => singOut()
-    //     }
-    //   ]
-    // )
   }
 
   function handleCloseModal(){
@@ -49,10 +36,11 @@ export default function Profile() {
         </View>
         <Text style={styles.message} numberOfLines={1}>{phrase}</Text>
       </View>
+      
       <ModalView
         visible={visible}
         closeModal={handleCloseModal}
-        adaptiveHeigth
+        adaptiveHeight
       >
         <SingOut />
       </ModalView>

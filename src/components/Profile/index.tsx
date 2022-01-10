@@ -1,12 +1,16 @@
 import React from 'react'
 import { Alert, Text, View } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler'
-import { useAuth } from '../../hooks/auth'
+
 import Avatar from '../Avatar'
+
+import { getRandomPhrase } from '../../services/phrases'
+import { useAuth } from '../../hooks/auth'
 import { styles } from './styles'
 
 export default function Profile() {
   const { user, singOut } = useAuth()
+  const phrase = getRandomPhrase()
 
   function handleSingOut(){
     Alert.alert(
@@ -35,7 +39,7 @@ export default function Profile() {
           <Text style={styles.greeting}>Olá,</Text>
           <Text style={styles.username}>{user.firstName}</Text>
         </View>
-        <Text style={styles.message}>Hoje é dia de vitória!</Text>
+        <Text style={styles.message} numberOfLines={1}>{phrase}</Text>
       </View>
     </View>
   )

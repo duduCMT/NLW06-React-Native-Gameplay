@@ -15,11 +15,13 @@ import ListHeader from '../../components/ListHeader'
 import Member from '../../components/Member'
 import ListDivider from '../../components/ListDivider'
 import ButtonIcon from '../../components/ButtonIcon'
+import Load from '../../components/Load'
+import ModalView from '../../components/ModalView'
+import ErrorMessage from '../../components/ErrorMessage'
 
 import { api } from '../../services/api'
 import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
-import Load from '../../components/Load'
 
 
 type Params = {
@@ -41,6 +43,7 @@ export default function AppointmentDetails({ }: Props) {
   const route = useRoute()
   const { guildSelected } = route.params as Params
   
+  const [modalErrorVisible, setModalErrorVisible] = useState(false)
   const [widget, setWidget] = useState<GuildWidget>({} as GuildWidget)
   const [loading, setLoading] = useState(true)
 
@@ -49,7 +52,9 @@ export default function AppointmentDetails({ }: Props) {
       const response = await api.get(`/guilds/${guildSelected.guild.id}/widget.json`)
       setWidget(response.data)
     } catch {
-      Alert.alert('Membros Indisponíveis', 'Verifique as configurações do seervidor. Será que o Widget está habilitado?')
+      
+      setModalErrorVisible(true)
+      //Alert.alert('Membros Indisponíveis', 'Verifique as configurações do seervidor. Será que o Widget está habilitado?')
     } finally {
       setLoading(false)
     }
@@ -133,6 +138,17 @@ export default function AppointmentDetails({ }: Props) {
           />
         </View>
       }
+
+      <ModalView 
+        closeModal={() => setModalErrorVisible(false)} 
+        visible={modalErrorVisible}
+        adaptiveHeight
+      >
+        <ErrorMessage 
+          title='Membros Indisponíveis'
+          message='Verifique as configurações do servidor. Será que o Widget está habilitado?'
+        />
+      </ModalView>
       
       
     </View>

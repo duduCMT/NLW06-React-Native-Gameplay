@@ -4,9 +4,11 @@
 
 ## 📸 Preview
 
-<p align="center">
-  <img src=".github/assets/img/gifs/preview01-auth.gif" style="height: 420px; margin-right: 8px">
-</p>
+<div align="center">
+  <div style="display: flex; justify-content: center;">
+    <img src=".github/assets/img/gifs/preview01-auth.gif" style="height: 420px;">
+  </div>
+</div>
 
 
 
@@ -76,22 +78,20 @@ Caso tenha alguma duvida sobre a execução do projeto usando Expo acesse a [doc
 
 ## 📸 Preview das Telas
 
-<p align="center">
-  <img src=".github/assets/img/preview01.png" style="height: 420px; margin-right: 8px">
-  <img src=".github/assets/img/preview02.png" style="height: 420px; margin-right: 8px">
-  <img src=".github/assets/img/preview03.png" style="height: 420px;" />
-  <br>
-  <img src=".github/assets/img/preview04.png" style="height: 420px; margin-right: 8px" />
-  <img src=".github/assets/img/preview05.png" style="height: 420px; margin-right: 8px" />
-  <img src=".github/assets/img/preview06.png" style="height: 420px; " />
-  <br>
-  <img src=".github/assets/img/preview07.png" style="height: 420px; margin-right: 8px" />
-  <img src=".github/assets/img/preview08.png" style="height: 420px; margin-right: 8px" />
-  <img src=".github/assets/img/preview09.png" style="height: 420px; " />
-  <br>
-  <img src=".github/assets/img/preview10.png" style="height: 420px; " />
-
-</p>
+<div align="center">
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;">
+    <img src=".github/assets/img/preview01.png" style="height: 420px;">
+    <img src=".github/assets/img/preview02.png" style="height: 420px;">
+    <img src=".github/assets/img/preview03.png" style="height: 420px;">
+    <img src=".github/assets/img/preview04.png" style="height: 420px;">
+    <img src=".github/assets/img/preview05.png" style="height: 420px;">
+    <img src=".github/assets/img/preview06.png" style="height: 420px;">
+    <img src=".github/assets/img/preview07.png" style="height: 420px;">
+    <img src=".github/assets/img/preview08.png" style="height: 420px;">
+    <img src=".github/assets/img/preview09.png" style="height: 420px;">
+    <img src=".github/assets/img/preview10.png" style="height: 420px;">
+  </div>
+</div>
 
 
 ## 📸 Autenticação
@@ -107,18 +107,5 @@ Caso tenha alguma duvida sobre a execução do projeto usando Expo acesse a [doc
 
 ## 📸 Detalhes do Appointment
 <p align="center">
-<img src=".github/assets/img/gifs/preview03-details.gif" style="height: 400px;" />
+  <img src=".github/assets/img/gifs/preview03-details.gif" style="height: 400px;" />
 </p>
-
-
-
-
-
-
-
-
-
-
-
-
-

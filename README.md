@@ -1,14 +1,11 @@
 # Gameplay NLW06 - React Native (Typescript)
-[![](https://img.shields.io/badge/license-MIT-green)]() 
+[![](https://img.shields.io/badge/license-MIT-green)](https://github.com/duduCMT/NLW06-React-Native-Gameplay/blob/master/LICENSE) 
 [![](https://img.shields.io/badge/version-0.0.1-yellow)](#) 
 
 ## 📸 Preview
 
 <p align="center">
   <img src=".github/assets/img/gifs/preview01-auth.gif" style="height: 420px; margin-right: 8px">
-  <img src=".github/assets/img/preview02.png" style="height: 420px; margin-right: 8px">
-  <img src=".github/assets/img/preview03.png" style="height: 420px;" />
-  <br>
 </p>
 
 
